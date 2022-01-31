@@ -1,0 +1,22 @@
+(Assignment)
+
+How will the strings be stored
+    - Not stored. Program will loop until the user does not want to continue
+
+Which type of loop
+    - While loop until user enters a blank string (hitting the enter key when
+    prompted)
+
+While loop (a minimum of 6 times) over this sequence of functions for each
+string
+    - Prompt the user for a string (input function)
+        - If the string is empty: break the loop AND end the program
+    - Print out the string as a display to the user
+    - Use the corresponding functions for each step below
+        - Print out a meaningful message if it is all alphabetic or not
+        - Print out a meaningful message if the string is all uppercase
+          characters or not
+        - Print out a meaningful message if the string is alphanumeric or not
+        - Print the string after converting all of the lowercase characters to
+          uppercase characters
+        - Print the string after replacing all of the 's' with 'j'
