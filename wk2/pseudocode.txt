@@ -14,6 +14,15 @@ string
     - Print out the string as a display to the user
     - Use the corresponding functions for each step below
         - Print out a meaningful message if it is all alphabetic or not
+            - loop over the words of the sentence
+            - append all of the first leters to a separate list
+            - if the concatenation of the list's letters is in the alphabet
+              string: then the sentence is alphabetic
+
+
+
+
+
         - Print out a meaningful message if the string is all uppercase
           characters or not
         - Print out a meaningful message if the string is alphanumeric or not
