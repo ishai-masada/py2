@@ -1,41 +1,39 @@
 
 def is_alphabetical(sentence):
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    count = 0
-    for idx, word in enumerate(sentence):
-        if word[0] != alphabet[idx]:
-            return "\nThis sentence is not alphabetical!"
-        count += 1
+    first_letters = []
 
-    if count == len(sentence):
-        return "\nThis sentence is alphabetical!"
-
-def is_capitalized(sentence):
-    count = 0
-    check_variable = True
     for word in sentence:
-        if check_variable:
-            for letter in word:
-                if letter.isupper():
-                    return "\nThis sentence is not capitalized!"
-            count += 1
+        first_letters.append(word[0])
 
-    if count == len(sentence):
-        return "\nThis sentence is capitalized!"
+    if ''.join(first_letters) in alphabet:
+        return "This sentence is alphabetical!"
+
+    else:
+        return "This sentence is not alphabetical!"
+
+def is_capitalized(base_string):
+    if ''.join(base_string).isupper():
+        return "This sentence is capitalized!"
+
+    else:
+        return "This sentence is not capitalized!"
 
 def is_alphanumeric(base_string):
     contains_letters = False
     contains_numbers = False
-    for letter in base_string:
-        if contains_letters and contains_numbers:
-            return "\nThis sentence is alphanumeric!"
-        if isinstance(letter, str):
+    for char in base_string:
+        if isinstance(char, str):
             contains_letters = True
-        if isinstance(letter, int):
+
+        if char.isnumeric():
             contains_numbers = True
 
+        if contains_letters and contains_numbers:
+            return "This sentence is alphanumeric!"
+
     if contains_letters == False or contains_numbers == False:
-        return "\nThis sentence is not alphanumeric!"
+        return "This sentence is not alphanumeric!"
 
 def lower_to_upper(base_string):
     for idx, letter in enumerate(base_string):
@@ -66,12 +64,12 @@ def s_to_j(base_string):
 while True:
     base_string = list(input("Type in a sentence here or just hit enter to end the program: "))
     sentence = ''.join(base_string).split()
-    if len(base_string) == 0:
+    if len(''.join(base_string).strip()) == 0:
         break
-    print('\n', is_alphabetical(sentence))
-    print('\n', is_capitalized(sentence))
-    print('\n', is_alphanumeric(base_string))
-    print('\n', lower_to_upper(base_string))
-    print('\n', upper_to_lower(base_string))
-    print('\n', s_to_j(base_string))
+    print('\n' + is_alphabetical(sentence), '\n')
+    print(is_capitalized(sentence), '\n')
+    print(is_alphanumeric(base_string), '\n')
+    print(lower_to_upper(base_string), '\n')
+    print(upper_to_lower(base_string), '\n')
+    print(s_to_j(base_string), '\n')
 
