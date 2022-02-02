@@ -1,4 +1,33 @@
+import copy
+#####################################################################################
+#
+# Name:   Ishai Masada
+#
+# Date:      2/1/22
+#
+# Purpose:  Use string manipulations
+#
+# Functions:       is_alphabetical, is_capitalized, is_alphanumeric, lower_to_upper,
+#                   upper_to_lower, s_to_j
+# Update:           None
+#
+#####################################################################################
 
+#####################################################################################
+#
+# Function Name:  is_alphabetical
+#
+# Date:           2/1/22
+#
+# Purpose:       Check if the given string is alphabetical by each word
+#
+# Who called           While loop
+#
+# Functions:             None
+#
+# Update:                 None
+#
+#####################################################################################
 def is_alphabetical(sentence):
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
     first_letters = []
@@ -12,6 +41,21 @@ def is_alphabetical(sentence):
     else:
         return "This sentence is not alphabetical!"
 
+#####################################################################################
+#
+# Function Name:  is_capitalized
+#
+# Date:           2/1/22
+#
+# Purpose:       Checks if all of the characters in a given string are capitalized
+#
+# Who called           While loop
+#
+# Functions:             None
+#
+# Update:                 None
+#
+#####################################################################################
 def is_capitalized(base_string):
     if ''.join(base_string).isupper():
         return "This sentence is capitalized!"
@@ -19,49 +63,131 @@ def is_capitalized(base_string):
     else:
         return "This sentence is not capitalized!"
 
+#####################################################################################
+#
+# Function Name:  is_alphanumeric
+#
+# Date:           2/1/22
+#
+# Purpose:       Checks if the given string contains numbers and letters
+#
+# Who called           While Loop
+#
+# Functions:             None
+#
+# Update:                 None
+#
+#####################################################################################
 def is_alphanumeric(base_string):
-    contains_letters = False
-    contains_numbers = False
-    for char in base_string:
-        if isinstance(char, str):
-            contains_letters = True
+    base_string = ''.join(''.join(base_string).split())
+    if base_string.isalpha() == False and base_string.isdigit() == False:
+        return "This sentence is alphanumeric!"
 
-        if char.isnumeric():
-            contains_numbers = True
-
-        if contains_letters and contains_numbers:
-            return "This sentence is alphanumeric!"
-
-    if contains_letters == False or contains_numbers == False:
+    else:
         return "This sentence is not alphanumeric!"
 
+#####################################################################################
+#
+# Function Name:  lower_to_upper
+#
+# Date:           2/1/22
+#
+# Purpose:       Capitalizes all of the characters in a given string
+#
+# Who called           While Loop
+#
+# Functions:             None
+#
+# Update:                 None
+#
+#####################################################################################
+##
 def lower_to_upper(base_string):
-    for idx, letter in enumerate(base_string):
+    new_string = copy.deepcopy(base_string)
+    for idx, letter in enumerate(new_string):
         if letter == ' ' or letter == '"' or letter.isupper():
             continue
         elif letter.islower():
-            base_string[idx] = letter.upper()
+            new_string[idx] = letter.upper()
 
-    base_string = ''.join(base_string)
-    return base_string
+    new_string = ''.join(new_string)
+    return new_string
 
+#####################################################################################
+#
+# Function Name:  upper_to_lower
+#
+# Date:           2/1/22
+#
+# Purpose:       Converts all of the characters in a given string to lower case
+#
+# Who called           While Loop
+#
+# Functions:             None
+#
+# Update:                 None
+#
+#####################################################################################
 def upper_to_lower(base_string):
-    for idx, letter in enumerate(base_string):
+    new_string = copy.deepcopy(base_string)
+    for idx, letter in enumerate(new_string):
         if letter == ' ' or letter == '"' or letter.islower():
             continue
         elif letter.isupper():
-            base_string[idx] = letter.lower()
+            new_string[idx] = letter.lower()
 
-    base_string = ''.join(base_string)
-    return base_string
+    new_string = ''.join(new_string)
+    return new_string
 
+#####################################################################################
+#
+# Function Name:  s_to_j
+#
+# Date:           2/1/22
+#
+# Purpose:       Changes all of the "s"s in a given string to "j"s
+#
+# Who called           While Loop
+#
+# Functions:             None
+#
+# Update:                 None
+#
+#####################################################################################
 def s_to_j(base_string):
-    for idx, letter in enumerate(base_string):
+    new_string = copy.deepcopy(base_string)
+    for idx, letter in enumerate(new_string):
         if letter == 's':
-            base_string[idx] = 'j'
-    return ''.join(base_string)
+            new_string[idx] = 'j'
+        if letter == 'S':
+            new_string[idx] = 'J'
+    return ''.join(new_string)
 
-while True:
+#####################################################################################
+#
+# Function Name:  j_to_s
+#
+# Date:           2/1/22
+#
+# Purpose:       Changes all of the "j"s in a given string to "s"s
+#
+# Who called           While Loop
+#
+# Functions:             None
+#
+# Update:                 None
+#
+#####################################################################################
+def j_to_s(base_string):
+    new_string = copy.deepcopy(base_string)
+    for idx, letter in enumerate(new_string):
+        if letter == 'j':
+            new_string[idx] = 's'
+        if letter == 'J':
+            new_string[idx] = 'S'
+    return ''.join(new_string)
+
+for i in range(7):
     base_string = list(input("Type in a sentence here or just hit enter to end the program: "))
     sentence = ''.join(base_string).split()
     if len(''.join(base_string).strip()) == 0:
@@ -70,6 +196,11 @@ while True:
     print(is_capitalized(sentence), '\n')
     print(is_alphanumeric(base_string), '\n')
     print(lower_to_upper(base_string), '\n')
+
+    # User may want to change the upper case letters to lower case
     print(upper_to_lower(base_string), '\n')
+
     print(s_to_j(base_string), '\n')
 
+    # User may want to change the "j"s to "s"s
+    print(j_to_s(base_string), '\n')
