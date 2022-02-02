@@ -187,6 +187,7 @@ def j_to_s(base_string):
             new_string[idx] = 'S'
     return ''.join(new_string)
 
+print("This program is for string manipulation.\n")
 for i in range(7):
     base_string = list(input("Type in a sentence here or just hit enter to end the program: "))
     sentence = ''.join(base_string).split()
