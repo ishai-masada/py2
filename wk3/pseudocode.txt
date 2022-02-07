@@ -1,0 +1,38 @@
+- Infinite Loop
+
+    - Store the user's choice into a variable
+
+    - Call the correct function that corresponds to the user's input
+
+        - Call the add function if the user's input is "add":
+
+            - Prompt the user to input the name of the item that they want to
+              add to the grocery list
+
+            - Prompt the user to input the item's cost
+
+        - Call the delete function if the user's input is "add":
+
+            - Prompt the user to input the name of the item that they want to
+              delete from the grocery list
+
+            - Remove the item from the grocery list using the name provided
+              by the user
+
+        - Call the print function if the user's input is "add":
+
+            - Iterate over the grocery list
+
+                - Print out the name and cost of each item
+
+        - Call the go shopping function if the user's input is "add":
+
+            - Iterate over the grocery list
+
+                - Print out the name of each item
+
+            - Calculate and print the total cost of the items on the list
+
+        - Exit the program if the user's input is "add":
+
+            - Exit the infinite loop
