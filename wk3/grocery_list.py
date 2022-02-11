@@ -77,7 +77,7 @@ def get_choice():
 #####################################################################################
 def add(GROCERY_LIST):
     item_name = input("Type in the item name to add: ")
-    item_cost = input("Type in the item cost: ")
+    item_cost = float(input("Type in the item cost: "))
     GROCERY_LIST[item_name.title()] = item_cost
 
 #####################################################################################
@@ -139,7 +139,7 @@ def go_shopping(GROCERY_LIST):
     print('\nItems:\n')
     for item_name in GROCERY_LIST.keys():
         print('-', item_name)
-        total_cost = sum(GROCERY_LIST.values())
+    total_cost = sum(GROCERY_LIST.values())
     print(f'\nTotal Cost: ${total_cost}')
 
 while True:
