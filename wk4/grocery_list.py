@@ -262,7 +262,7 @@ for i in range(4):
         elif choice == 'go shopping':
            go_shopping(GROCERY_LIST, week_cost)
 
-        # Checks if the user spelled their input incorrectly
+        # Check if the user spelled their input incorrectly
         else:
             print("\nThat was not any of the options. Try again.")
 

@@ -1,0 +1,55 @@
+- Loop four times (once for each week)
+
+    - Prompt to user to initialize the grocery list for that week
+
+    - Infinite Loop (allow the user to make any action as many times as they
+      want to)
+
+        - Store the user's choice into a variable
+
+        - Call the correct function that corresponds to the user's input
+
+            - Call the add function if the user's input is "add":
+
+                - Prompt the user to input the name and cost of the item that
+                  they want to add to the grocery list
+
+                - Iterate over the user's items and add them to the grocery list
+
+                - Return the grocery list and the cost of all of its items
+
+            - Call the delete function if the user's input is "delete":
+
+                - Infinite loop
+
+                    - If the grocery list is empty: break the loop
+
+                    - Prompt the user to input the name of the item that they
+                      want to delete from the grocery list
+
+                    - If the user didn't type anything in: break the loop
+
+                    - Remove the item from the grocery list using the name
+                      provided by the user
+
+                - Return the grocery list and the cost of all of its items
+
+            - Call the print function if the user's input is "print":
+
+                - Iterate over the grocery list
+
+                    - Print out the name and cost of each item
+
+            - Call the go shopping function if the user's input is "go shopping":
+
+                - Iterate over the grocery list
+
+                    - Print out the name of each item
+
+                - Print the total cost of the items in the list
+
+            - Skip the week if the user's input is "next":
+
+                - Continue to the next week
+
+- Print the total cost over all four weeks
