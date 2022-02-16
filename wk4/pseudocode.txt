@@ -42,6 +42,26 @@
 
             - Call the go shopping function if the user's input is "go shopping":
 
+                - Loop a random number of times
+
+                    - Choose random items from the list (dictionary) of
+                      extra items
+
+                - Store the user's choice into a variable
+
+                - Return the grocery list and the week cost if the user's input
+                  is "exit"
+
+                - Call the impulse shop function if the user's input is
+                  "impulse shop":
+
+                    - Prompt the user to enter the name of the (extra) item
+                      they want to purchase from the store
+
+                    - Store the items into the grocery list
+
+                    - Return the grocery list and the cost of all of its items
+
                 - Iterate over the grocery list
 
                     - Print out the name of each item
