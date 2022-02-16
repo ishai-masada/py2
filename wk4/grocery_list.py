@@ -1,16 +1,19 @@
+import random
+
 #####################################################################################
 #
 # Name:   Ishai Masada
 #
-# Date:
+# Date:   2/16/22
 #
 # Purpose:  Create a grocery list for shopping
 #
-# Functions:       None
+# Functions:       menu_display, impulse_shop_display, get_choice, get_name_cost, add.
+#                  delete, print_list, get_list, impulse_shop, go_shopping
 #
 # Update:   Converted any of the code that is not built as a function, to a function.
-#           Added a function that allows the user to create a grocery list for 4 weeks,
-#           a new one each week.
+#           Loops only for 4 weeks with a new grocery list each week. Added a function
+#           to allow the user to impulse shop.
 #
 #####################################################################################
 
@@ -25,17 +28,35 @@
 # Who called:           get_choice() function
 #
 # Functions:             None
+# Update:                 None
+#
+#####################################################################################
+def menu_display():
+    print("\n- Type \"Add\" to Add items to the grocery list")
+    print("- Type \"Delete\" to  Delete items from the grocery list")
+    print("- Type \"Print\" to Print the grocery list")
+    print("- Type \"Go shopping\" to Go shopping")
+    print("- Type \"Next\" to go to the next week")
+
+
+#####################################################################################
+#
+# Function Name:  impulse_shop_display
+#
+# Date:           2/15/22
+#
+# Purpose:       Displays the menu options for the store
+#
+# Who called:           get_choice() function
+#
+# Functions:             None
 #
 # Update:                 None
 #
 #####################################################################################
-def display():
-    print("\n- Type \"Add\" to Add items to the grocery list")
-    print("\n- Type \"Delete\" to  Delete items from the grocery list")
-    print("\n- Type \"Print\" to Print the grocery list")
-    print("\n- Type \"Go shopping\" to Go shopping")
-    print("\n- Type \"Next\" to go to the next week")
-
+def impulse_shop_display():
+    print("\n- Type \"Exit\" to exit the store")
+    print("- Type \"Impulse Shop\" to purchase additional items")
 
 #####################################################################################
 #
@@ -52,7 +73,7 @@ def display():
 # Update:                 None
 #
 #####################################################################################
-def get_choice():
+def get_choice(display):
     print("\nThese are your options: ")
     display()
     choice = input("\nWhat do you wish to do? ").strip().lower()
@@ -179,7 +200,7 @@ def delete(GROCERY_LIST, week_cost):
 def print_list(GROCERY_LIST):
     print()
     for item_name, cost in GROCERY_LIST.items():
-        print('-', f'{item_name}:', cost)
+        print('-', f'{item_name}:', f'${cost}')
     print()
 
 #####################################################################################
@@ -208,6 +229,58 @@ def get_list(GROCERY_LIST, week_cost):
 
 #####################################################################################
 #
+# Function Name:  impulse_shop
+#
+# Date:           2/15/22
+#
+# Purpose:       Allows the user to impulse shop
+#
+# Who called           elif statement
+#
+# Functions:             None
+#
+# Update:                 None
+#
+#####################################################################################
+def impulse_shop(GROCERY_LIST, extra_items, item_names):
+
+    # Get the items that the user wants to purchase
+    items = []
+    while True:
+        while True:
+            item_name = input("\nType in the name of the item that you want to add to the "
+                               "grocery list, or type nothing to finish: ").strip().lower().title()
+            try:
+                float(item_name)
+                int(item_name)
+                print("\nYou can only enter letters, not numbers")
+                continue
+
+            except:
+                break
+
+        if len(item_name) == 0:
+            break
+
+        if item_name in item_names:
+            items.append(item_name)
+        else:
+            print("\nYou did not enter an item available at the store.")
+
+    for item in items:
+        GROCERY_LIST[item] = extra_items.get(item)
+
+    print('\nItems purchased:\n')
+    for item_name in GROCERY_LIST.keys():
+        print('-', item_name)
+    week_cost = round(sum(GROCERY_LIST.values()), 3)
+    print(f'\nTotal Cost: ${week_cost}')
+
+    return GROCERY_LIST, week_cost
+
+
+#####################################################################################
+#
 # Function Name:  go_shopping
 #
 # Date:           2/7/22
@@ -221,12 +294,23 @@ def get_list(GROCERY_LIST, week_cost):
 # Update:                 None
 #
 #####################################################################################
-def go_shopping(GROCERY_LIST, week_cost):
-    print('\nItems purchased:\n')
-    for item_name in GROCERY_LIST.keys():
+def go_shopping(GROCERY_LIST, week_cost, extra_items):
+    item_names = []
+    count = 0
+    limit = random.randrange(1, 4)
+    while count < limit:
+        item_names.append(random.choice(list(set(extra_items.keys()))))
+        count += 1
+
+    print("\nYou pass by these items: ")
+    for item_name in item_names:
         print('-', item_name)
-    week_cost = round(sum(GROCERY_LIST.values()), 3)
-    print(f'\nTotal Cost: ${week_cost}')
+
+    choice = get_choice(impulse_shop_display)
+    if choice == 'exit':
+        return GROCERY_LIST, week_cost
+    elif choice == 'impulse shop':
+        return impulse_shop(GROCERY_LIST, extra_items, item_names)
 
 total_cost = 0
 
@@ -239,12 +323,14 @@ for i in range(4):
 
     week_cost = 0
     GROCERY_LIST, week_cost = get_list(GROCERY_LIST, week_cost)
+    extra_items = {'Twix': 2.5, 'Ice Cream': 4, 'Hot Dogs': 5, 'Skittles': 2.5,
+                   'Oreos': 4, 'Nutella': 3, 'Hot Pockets': 6}
 
     # Menu prompt
     while True:
 
         # Store the user's input into a variable
-        choice = get_choice()
+        choice = get_choice(menu_display)
 
         # Execute the correct function that corresponds to the user's input
         if choice == 'next':
@@ -260,7 +346,7 @@ for i in range(4):
            print_list(GROCERY_LIST)
 
         elif choice == 'go shopping':
-           go_shopping(GROCERY_LIST, week_cost)
+           go_shopping(GROCERY_LIST, week_cost, extra_items)
 
         # Check if the user spelled their input incorrectly
         else:
