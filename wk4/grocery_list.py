@@ -11,7 +11,7 @@ import random
 # Functions:       menu_display, impulse_shop_display, get_choice, get_name_cost, add.
 #                  delete, print_list, get_list, impulse_shop, go_shopping
 #
-# Update:   Converted any of the code that is not built as a function, to a function.
+# Update:   Converted all of the code that is not built as a function, to a function.
 #           Loops only for 4 weeks with a new grocery list each week. Added a function
 #           to allow the user to impulse shop.
 #
@@ -96,10 +96,13 @@ def get_choice(display):
 #####################################################################################
 def get_name_cost():
     items = {}
+    item_name_length = 1
+    item_cost_length = 1
     while True:
-        while True:
+        while item_name_length != 0:
             item_name = input("\nType in the name of the item that you want to add to the "
                                "grocery list, or type nothing to finish: ").strip().lower().title()
+            item_name_length = len(item_name)
             try:
                 float(item_name)
                 int(item_name)
@@ -109,11 +112,12 @@ def get_name_cost():
             except:
                 break
 
-        if len(item_name) == 0:
+        if item_name_length == 0:
             break
 
-        while True:
+        while item_cost_length != 0:
             cost = input("\nType in the cost of the item or type nothing to cancel: ").strip().lower()
+            item_cost_length = len(cost)
             try:
                 float(cost)
                 break
@@ -122,7 +126,7 @@ def get_name_cost():
                     print("\nYou can only enter numbers, not letters")
                     continue
 
-        if len(cost) == 0:
+        if item_cost_length == 0:
             break
 
         items[item_name] = float(cost)
@@ -298,8 +302,11 @@ def go_shopping(GROCERY_LIST, week_cost, extra_items):
     item_names = []
     count = 0
     limit = random.randrange(1, 4)
+    extra_item_names = list(set(extra_items.keys()))
     while count < limit:
-        item_names.append(random.choice(list(set(extra_items.keys()))))
+        extra_item = random.choice(extra_item_names)
+        item_names.append(extra_item)
+        extra_item_names.remove(extra_item)
         count += 1
 
     print("\nYou pass by these items: ")
