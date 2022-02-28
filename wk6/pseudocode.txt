@@ -1,0 +1,63 @@
+- Define the newton function with the number that is going to be square rooted
+  as its argument
+
+    - Try to turn the number into a floating point integer
+
+        - If the number is negative
+
+            - Print out an error statement
+
+            - Have the function return the False boolean
+
+    - If the number cannot be converted
+
+        - Print out an error statement
+
+        - Have the function return the False boolean
+
+    - Set the tolerance value to a small decimal value to make the tolerance
+      small and increase the accuracy of the calculation
+
+    - Start the calculations with an estimate value of the float 1.0
+
+    - Infinite loop
+
+        - Redefine the estimate value
+
+            - Divide the sum between the estimate value and the number value by
+              the estimate value. Divide the quotient by 2
+
+        - If the difference between the number and the square of the estimate
+          value is less than the tolerance value
+
+            - Set the number value equal to the estimate value
+
+            - Break the infinite loop
+
+    - Return the number value
+
+
+- Define the main function
+
+    - Define a number value as the input from the user
+
+    - Conditional loop: if the number does not equal an empty string
+
+        - Calculate the square root of the number using the newton function
+
+        - If the value of the newton_root exists
+
+            - Calculate the square root of the same number value using
+              python's square root function
+
+            - Print out python's result and the newton function result
+
+            - Calculate the discrepency between the two values
+
+            - Print out the discrepency
+
+        - Prompt the user for another number
+
+
+- Call the main function with no arguments
+
