@@ -1,24 +1,39 @@
 - Import NumPy and random
+
 - Create a list of positive and negative integers
+
 - Create an array from that list of integers by passing the list to a
   user-defined function
+
     - Use the numpy array method given the list of values
+
 - Prompt the user for an element to add to the array and change the type to
   an integer
+
 - Append the new element to the array by passing both to a user-defined
   function
+
     - Use the numpy append method given the array and the new element
+
 - Convert the type of the array back to an array of integers
+
 - Replace all of the negative values in the array by passing it to a
   user-defined function
+
     - Use the numpy where method
+
         - The first argument is the condition that the elemenet is negative (The
           condition that each element may pass)
+
         - The second argument is 0 (What the element is replaced with if it
           passes the given condition)
+
         - The third aregument is the original element (What the element is
           replaced with if it doesn't pass the given condition)
+
 - Define two arrays with a random number of integers
+
 - Find the common elements between the two arrays by passing both to a
   user-defined function
+
     - Use the numpy intersect1d method given the two arrays as its arguments
