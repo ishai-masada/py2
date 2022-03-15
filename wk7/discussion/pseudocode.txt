@@ -1,0 +1,14 @@
+- Import the Pandas module
+
+- Read data from a file using the read excel method (Microsoft Excel Spreadsheet) 
+  and store it into a variable
+
+- Display all of the data in the dataframe using the describe method
+
+- Store the names of all of the people in the spreadsheet into a variable
+  using the loc method
+
+- Store the ages of all of the people in the spreadsheet into a variable
+  using the loc method
+
+- Print the ages and the names
