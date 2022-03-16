@@ -1,12 +1,19 @@
 import pandas
 
-num_list = [3, 5, 6, 1]
-def series(py_list):
+def series():
+    num_list = [3, 5, 6, 1]
     indices = ["first", "second", "third", "fourth"]
-    panda_series = pandas.Series(py_list, indices)
+
+    # Python list to a Pandas Series
+    panda_series = pandas.Series(num_list, indices)
     print(panda_series, '\n')
 
-    return panda_series
+    # Dates from 3/1/22 to 3/12/22
+    dates = ["5/1/22", "5/2/22", "5/3/22", "5/4/22", "5/5/22","5/6/22", "5/7/22",
+             "5/8/22", "5/9/22", "5/10/22", "5/11/22", "5/12/22"]
+    indices = [num for num in range(1, 13)]
+    panda_series = pandas.Series(dates, indices)
+    print(panda_series, '\n')
 
 # df is DataFrame
 def df():
@@ -31,17 +38,17 @@ def df():
     print(people_df, '\n')
 
     # # Creating a custom index
-    people_df.set_index("ID")
+    people_df.set_index("ID", inplace=True)
     print(people_df, '\n')
 
     # # Sort the DataFrame by the index
-    people_df.sort_index()
+    people_df.sort_values(['ID'], inplace=True, ascending=False)
     print(people_df, '\n')
 
     # # Conditional DataFrame
-    # people_df.where(people_df["Age"] > 24, inplace=True)
-    # print(people_df)
+    people_df.where(people_df["Age"] > 24, inplace=True)
+    print(people_df)
 
 
-series(num_list)
+series()
 df()
