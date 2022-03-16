@@ -1,0 +1,28 @@
+- Import Pandas
+
+First Funcion (no arguments)
+    - Create a list of numbers and a list of indices
+    - Convert the list of integers into a Pandas Series
+
+    - Create a list of dates from May 1 to May 12
+    - Create a list of indices
+    - Convert the list of dates into a Pandas Series
+
+Second Function (no arguments)
+    - Create a two-dimensional dictionary of data
+    - Convert the dictionary into a Pandas DataFrame
+
+    - Create a two-dimensional list of data
+    - Convert the list into a Pandas DataFrame
+
+    - Read data from a CSV file
+    - Convert the file into a Pandas DataFrame
+
+    - Set the index of the DataFrame to the index column of the data
+
+    - Sort the rows of the data by descending index values
+
+    - Give the DataFrame a condition for it to apply to each of its values
+
+- Call the first function
+- Call the second function
