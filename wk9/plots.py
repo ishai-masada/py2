@@ -71,7 +71,7 @@ def second_funct():
 
     # Pie Chart
 
-    # Create a list of labels 
+    # Create a list of labels
     labels = ['crocodiles', 'dogs', 'snakes', 'eagles', 'whales', 'lions']
 
     # Create a list of percentages for each label
