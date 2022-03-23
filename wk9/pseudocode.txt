@@ -1,0 +1,64 @@
+Define the first function
+    - Get the "car crashes" dataset name
+
+    - Retrieve the correct dataset with the "car crashes" dataset name
+
+    - Set the theme to "darkgrid"
+
+    - Plot a line using the "alcohol" data
+
+    - Plot a line using the "speeding" data
+
+    - Show the plot
+
+    - Set the theme to "darkgrid"
+
+    - Plot a line using the "not distracted" data with a label
+
+    - Plot a line using the "no previous" data with a label
+
+    - Add a legend
+
+    - Show the plot
+
+Define the second function
+    - Initialize x and y values using lists
+
+    - Create a plot using the x and y values with a label
+
+    - Add a title
+
+    - Add a legend
+
+    - Show the plot
+
+    - Initialize new x and y values
+
+    - Create a plot using the x and y values with a label
+
+    - Add a title
+
+    - Add a legend
+
+    - Add an x axis label
+
+    - Add a y axis label
+
+    - Create a Pie Chart
+
+        - Create a lit of labels using strings
+
+        - Create a list of integer percentages for each label
+
+        - Designate one label to separate from the pie chart
+
+        - Create a pie chart plot
+
+        - Add a legend
+
+Define a main function
+    - Call first function
+
+    - Call second functino
+
+- Call the main function
