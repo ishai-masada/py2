@@ -1,7 +1,36 @@
+#####################################################################################
+#
+# Name:   Ishai Masada
+#
+# Date:   3/28/22
+#
+# Purpose:  Use Seaborn and Matplotlib to create plots
+#
+# Functions:       first_funct, second_funct
+#
+# Update:   None
+#
+#####################################################################################
 import seaborn
 import scipy
 import matplotlib.pyplot as pyplot
 
+
+#####################################################################################
+#
+# Function Name:  first_funct
+#
+# Date:           3/28/22
+#
+# Purpose:       Create several different plots
+#
+# Who called:           main function
+#
+# Functions:             None
+#
+# Update:                 None
+#
+#####################################################################################
 def first_funct():
     # Get the car crashes data set name
     for name in seaborn.get_dataset_names():
@@ -34,6 +63,21 @@ def first_funct():
     pyplot.legend()
     pyplot.show()
 
+#####################################################################################
+#
+# Function Name:  second_funct
+#
+# Date:           3/28/22
+#
+# Purpose:       Create several different plots
+#
+# Who called:           main function
+#
+# Functions:             None
+#
+# Update:                 None
+#
+#####################################################################################
 def second_funct():
     # Initialize x and y values
     x = [3, 1, 3]
@@ -87,6 +131,21 @@ def second_funct():
     pyplot.legend()
     pyplot.show()
 
+#####################################################################################
+#
+# Function Name:  main
+#
+# Date:           3/28/22
+#
+# Purpose:       Call all functions
+#
+# Who called:           None
+#
+# Functions:             first_funct, second_funct
+#
+# Update:                 None
+#
+#####################################################################################
 def main():
     # Call both functions
     first_funct()
