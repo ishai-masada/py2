@@ -1,0 +1,56 @@
+Student Class
+    - Define the repr and initiation dunder methods
+
+        - Attributes: Name, Grade 1, Grade 2, Grade 3
+
+    - Define a method that calculates the average score
+
+        - Add up each score and divide the sum by the number of scores
+
+Rectangle Class
+    - Define the repr and initation dunder methods
+
+        - Attributes: Name, Length, Width
+
+    - Define a method that calcualtes the area of the rectangle
+
+        - Multiplies the length and the width
+
+    - Define a method that calcualtes the perimeter of the rectangle
+
+        - Two times the sum of the width and length
+
+Box Class (Takes Rectangle Class)
+    - Define the repr and initation dunder methods
+
+        - Attributes: Name, Length, Width, Depth
+
+    - Define a method that calcualtes the volume of the box
+
+        - Multiplies the length, width, and height
+
+    - Define a method that calcualtes the surface area of the box
+
+        - Multiply the sum of the areas of one of each side of the Rectangle
+          by two
+
+Define part one function
+    - Initialize a list of instances of the Student class
+
+    - Loop over the list and print out each student's name and average score
+
+Define part two function
+    - Initialize a list of instances of the Rectangle class
+
+    - Loop over the list and display the information of the rectangle
+
+Define part three function
+    - Initialize a list of instances of the Box class
+
+    - Loop over the list and display the information of the box
+
+
+Define main function
+    - Call all of the functions
+
+- Call the main function
