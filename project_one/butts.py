@@ -3,11 +3,14 @@
 
 def purchase_animals(animals, user_animals, budget):
     while True:
+        if len(available_animals) == 0:
+            print("\nThere are no more animals to purchase")
+            return
+
         animal_name = input("\nType in the name of the animal you would like to purchase or nothing to cancel: ")
 
         if len(animal_name) == 0:
             break;
-
 
         if animal_name not in animals:
             print("\nThat is not an available animal.")
@@ -20,20 +23,21 @@ def purchase_animals(animals, user_animals, budget):
             user_animals[animal_name] = animal_cost
             available_animals.pop(animal_name)
             print(f"\nYou purchased a {animal_name}!")
-            display_animals(available_animals, user_animals)
+            display(available_animals, user_animals, budget)
         else:
             print("\nYou cannot afford that animal")
             print(f"Your budget: {budget}")
 
 def display(available_animals, user_animals, budget):
     print("\nThese are the animals you can purchase: ")
+
     for animal in available_animals:
-        print(animal, " - ", available_animals[animal])
+        print(animal, " - $" + str(available_animals[animal]))
 
     print("\nYour animals: ")
     if len(user_animals) > 0:
         for animal in user_animals:
-            print(animal, " - ", user_animals[animal])
+            print(animal, " - $" + str(user_animals[animal]))
     else:
         print("(None)")
 
