@@ -2,24 +2,44 @@
 # Zoo program
 
 # TODO Change the way the animals are stored. Add in multiples of the same animal
+class Animal:
+    def __repr__(self):
+        return self.name
+
+    def __init__(self, name, cost, count):
+        self.name = name
+        self.cost = cost
+
+    def get_daily_rate(self):
+        return self.cost / TICKET_COST
+
+    def calculate_earnings(self):
+        return self.count * self.daily_rate(self)
 
 class Zoo:
 
-    AVAILABLE_ANIMALS = {"Tiger": 7500, "Lion": 15000, "Bear": 15000, "Monkey": 3500,
-                         "Giraffe": 60000, "Zebra": 4000, "Rhino": 27000, "Crocodile": 1100,
-                         "Whale Shark": 500000, "Turtle": 1000, "Eel": 500,
-                         "Reef Shark": 6000, "Starfish": 100, "Manta Ray": 500}
+    # AVAILABLE_ANIMALS = {"Tiger": 7500, "Lion": 15000, "Bear": 15000, "Monkey": 3500,
+    #                      "Giraffe": 60000, "Zebra": 4000, "Rhino": 27000, "Crocodile": 1100,
+    #                      "Whale Shark": 500000, "Turtle": 1000, "Eel": 500,
+    #                      "Reef Shark": 6000, "Starfish": 100, "Manta Ray": 500}
+
+    AVAILABLE_ANIMALS = [Animal("Tiger", 7500, 0), Animal("Lion", 15000, 0),
+                         Animal("Bear", 15000, 0), Animal("Monkey", 3500, 0),
+                         Animal("Giraffe", 60000, 0), Animal("Zebra", 4000, 0),
+                         Animal("Rhino", 27000, 0), Animal("Crocodile", 1100, 0),
+                         Animal("Whale Shark", 500000, 0), Animal("Turtle", 1000, 0),
+                         Animal("Eel", 500, 0), Animal("Reef Shark", 6000, 0),
+                         Animal("Starfish", 100, 0), Animal("Manta Ray", 500, 0)
+                        ]
 
     def __repr__(self):
         return self.name
 
-    def __init__(self, name, owned_animals, funds, daily_rate):
+    def __init__(self, name, owned_animals):
         self.name = name
         self.owned_animals = owned_animals
-        self.daily_rate = daily_rate
-        self.funds = funds
 
-    def purchase_animals(self):
+    def purchase_animals(self, funds):
         self.display()
         while True:
             if len(self.AVAILABLE_ANIMALS) == 0:
@@ -31,48 +51,50 @@ class Zoo:
             if len(animal_name) == 0:
                 break;
 
-            if animal_name not in self.AVAILABLE_ANIMALS:
+            # Check if the animal name is valid
+            desired_animal = None
+
+            for animal in self.AVAILABLE_ANIMALS:
+                if animal_name == animal.name:
+                    desired_animal = animal
+                    break
+
+            if desired_animal == None:
                 print("\nThat is not an available animal.")
                 continue
 
-            animal_cost = self.AVAILABLE_ANIMALS[animal_name]
-
-            if self.funds - animal_cost >= 0:
-                self.funds -= animal_cost
-                self.owned_animals[animal_name] = animal_cost
-                self.AVAILABLE_ANIMALS.get(animal_name)
-                print(f"\nYou purchased a {animal_name}!")
+            if funds - desired_animal.cost >= 0:
+                funds -= desired_animal.cost
+                self.owned_animals.append(desired_animal)
+                print(f"\nYou purchased a {desired_animal.name}!")
                 self.display()
             else:
                 print("\nYou cannot afford that animal")
-                print(f"Your funds: {self.funds}")
-
-    def get_funds():
-        pass
+                print(f"Your funds: {funds}")
 
     def display(self):
         print(f"\n\"{repr(self)}\"")
         print("\nThese are the animals you can purchase: ")
 
         for animal in self.AVAILABLE_ANIMALS:
-            print(animal, " - $" + str(self.AVAILABLE_ANIMALS[animal]))
+            print(animal, " - $" + str(animal.cost))
 
         print("\nOwned animals: ")
         if len(self.owned_animals) > 0:
             for animal in self.owned_animals:
-                print(animal, " - $" + str(self.owned_animals[animal]))
+                print(animal, " - $" + str(animal.cost))
         else:
             print("(None)")
 
+
 TICKET_COST = 50
+funds = 10000000
 
-# st_albans_zoo = Zoo("St Albans Zoo", {}, 0, 0)
-# franklin_county_zoo = Zoo("Franking County Zoo", {}, 1000000, 0)
-# vermont_aquarium = Zoo("Vermont Aquarium", {}, 0, 0)
+zoos = [Zoo("St Albans Zoo", []), Zoo("Franking County Zoo", []),
+        Zoo("Vermont Aquarium", [])]
 
-zoos = [Zoo("St Albans Zoo", {}, 1000000, 0), Zoo("Franking County Zoo", {}, 1000000, 0),
-        Zoo("Vermont Aquarium", {}, 1000000, 0)]
-
-for zoo in zoos:
-    zoo.purchase_animals()
+for i in range(0, 7):
+    print(f'\nDay {i + 1}')
+    for zoo in zoos:
+        zoo.purchase_animals(funds)
 
