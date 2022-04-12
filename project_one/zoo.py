@@ -1,7 +1,10 @@
 # Project One
 # Zoo program
 
-# TODO Change the way the animals are stored. Add in multiples of the same animal
+import pandas
+
+# TODO implement a line plot for tracking the funds over the seven days
+
 class Animal:
     def __repr__(self):
         return self.name
@@ -17,11 +20,6 @@ class Animal:
         return self.count * self.daily_rate(self)
 
 class Zoo:
-
-    # AVAILABLE_ANIMALS = {"Tiger": 7500, "Lion": 15000, "Bear": 15000, "Monkey": 3500,
-    #                      "Giraffe": 60000, "Zebra": 4000, "Rhino": 27000, "Crocodile": 1100,
-    #                      "Whale Shark": 500000, "Turtle": 1000, "Eel": 500,
-    #                      "Reef Shark": 6000, "Starfish": 100, "Manta Ray": 500}
 
     AVAILABLE_ANIMALS = [Animal("Tiger", 7500, 0), Animal("Lion", 15000, 0),
                          Animal("Bear", 15000, 0), Animal("Monkey", 3500, 0),
@@ -86,15 +84,41 @@ class Zoo:
         else:
             print("(None)")
 
+def get_choice():
+    print("\nThese are your options: ")
+    print("1. Purchase Animals")
+    print("2. Calculate earnings and move to the next day")
+
+    while True:
+        choice = input("Enter the corresponding number to the option you wish to choose: ")
+        if choice.isnumeric() == False:
+            print("That was not a valid input.")
+        else:
+            break
+
+    return choice
+
+def calculate_earnings():
+    pass
 
 TICKET_COST = 50
-funds = 10000000
+funds = 10000
 
-zoos = [Zoo("St Albans Zoo", []), Zoo("Franking County Zoo", []),
-        Zoo("Vermont Aquarium", [])]
+zoo = Zoo("St Albans Zoo", [])
 
 for i in range(0, 7):
     print(f'\nDay {i + 1}')
-    for zoo in zoos:
-        zoo.purchase_animals(funds)
 
+    while True:
+        choice = get_choice()
+
+        if choice == '1':
+            zoo.purchase_animals(funds)
+            continue
+
+        elif choice == '2':
+            calculate_earnings()
+            break
+
+        else:
+            print("\nYour input was not valid.")
