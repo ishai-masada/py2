@@ -1,0 +1,8 @@
+# Scenario 1
+# Scenario 2
+# Scenario 3
+# Scenario 4
+# Scenario 5
+
+- Import the appropriate library to use create plots
+- Load the file in a CSV format
