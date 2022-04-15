@@ -3,7 +3,7 @@
 
 import pandas
 
-# TODO implement a line plot for tracking the funds over the seven days
+# TODO implement a line plot for tracking the funds over the seven days and count attribute
 
 class Animal:
     def __repr__(self):
@@ -12,6 +12,7 @@ class Animal:
     def __init__(self, name, cost, count):
         self.name = name
         self.cost = cost
+        self.count = count
 
     def get_daily_rate(self):
         return self.cost / TICKET_COST
@@ -44,7 +45,7 @@ class Zoo:
                 print("\nThere are no more animals to purchase")
                 return
 
-            animal_name = input("\nType in the name of the animal you would like to purchase or nothing to cancel: ")
+            animal_name = input("\nType in the name of the animal you would like to purchase or nothing to finish: ")
 
             if len(animal_name) == 0:
                 break;
@@ -63,7 +64,18 @@ class Zoo:
 
             if funds - desired_animal.cost >= 0:
                 funds -= desired_animal.cost
-                self.owned_animals.append(desired_animal)
+
+                # Check if the user has one of the animals that they want to purchase
+                if desired_animal in self.owned_animals:
+                    # Increment the count of that animal
+                    self.owned_animals.get(desired_animal.name).count += 1
+                else:
+                    # Insert the desired animal into the user's collection of animals
+                    self.owned_animals[desired_animal.name] = desired_animal
+
+                    # Increment the count by one
+                    self.owned_animals.get(desired_animal.name).count += 1
+
                 print(f"\nYou purchased a {desired_animal.name}!")
                 self.display()
             else:
@@ -79,8 +91,8 @@ class Zoo:
 
         print("\nOwned animals: ")
         if len(self.owned_animals) > 0:
-            for animal in self.owned_animals:
-                print(animal, " - $" + str(animal.cost))
+            for animal in self.owned_animals.values():
+                print(animal, "(x" + f"{animal.count})", " - $" + str(animal.cost))
         else:
             print("(None)")
 
@@ -104,7 +116,7 @@ def calculate_earnings():
 TICKET_COST = 50
 funds = 10000
 
-zoo = Zoo("St Albans Zoo", [])
+zoo = Zoo("St Albans Zoo", {})
 
 for i in range(0, 7):
     print(f'\nDay {i + 1}')
