@@ -14,11 +14,8 @@ class Animal:
         self.cost = cost
         self.count = count
 
-    def get_daily_rate(self):
-        return self.cost / TICKET_COST
-
-    def calculate_earnings(self):
-        return self.count * self.daily_rate(self)
+    def animal_earnings(self):
+        return (self.cost / 100) * self.count * TICKET_COST
 
 class Zoo:
 
@@ -39,13 +36,13 @@ class Zoo:
         self.owned_animals = owned_animals
 
     def purchase_animals(self, funds):
-        self.display()
+        self.display(funds)
         while True:
             if len(self.AVAILABLE_ANIMALS) == 0:
                 print("\nThere are no more animals to purchase")
                 return
 
-            animal_name = input("\nType in the name of the animal you would like to purchase or nothing to finish: ")
+            animal_name = input("\nType in the name of the animal you would like to purchase or nothing to finish: ").strip()
 
             if len(animal_name) == 0:
                 break;
@@ -66,24 +63,24 @@ class Zoo:
                 funds -= desired_animal.cost
 
                 # Check if the user has one of the animals that they want to purchase
-                if desired_animal in self.owned_animals:
-                    # Increment the count of that animal
-                    self.owned_animals.get(desired_animal.name).count += 1
-                else:
+                if desired_animal not in self.owned_animals:
                     # Insert the desired animal into the user's collection of animals
                     self.owned_animals[desired_animal.name] = desired_animal
 
-                    # Increment the count by one
-                    self.owned_animals.get(desired_animal.name).count += 1
+                # Increment the count by one
+                self.owned_animals.get(desired_animal.name).count += 1
 
                 print(f"\nYou purchased a {desired_animal.name}!")
-                self.display()
+                self.display(funds)
             else:
                 print("\nYou cannot afford that animal")
                 print(f"Your funds: {funds}")
 
-    def display(self):
+        return funds
+
+    def display(self, funds):
         print(f"\n\"{repr(self)}\"")
+        print(f"\nYour budget: {funds}")
         print("\nThese are the animals you can purchase: ")
 
         for animal in self.AVAILABLE_ANIMALS:
@@ -96,22 +93,28 @@ class Zoo:
         else:
             print("(None)")
 
+    def zoo_earnings(self, funds):
+        earnings = 0
+        for animal in self.owned_animals:
+            earnings += self.owned_animals[animal].animal_earnings()
+
+        funds += earnings
+
+        return funds, earnings
+
 def get_choice():
     print("\nThese are your options: ")
     print("1. Purchase Animals")
     print("2. Calculate earnings and move to the next day")
 
     while True:
-        choice = input("Enter the corresponding number to the option you wish to choose: ")
+        choice = input("Enter the corresponding number to the option you wish to choose: ").strip()
         if choice.isnumeric() == False:
             print("That was not a valid input.")
         else:
             break
 
     return choice
-
-def calculate_earnings():
-    pass
 
 TICKET_COST = 50
 funds = 10000
@@ -125,12 +128,15 @@ for i in range(0, 7):
         choice = get_choice()
 
         if choice == '1':
-            zoo.purchase_animals(funds)
+            funds = zoo.purchase_animals(funds)
             continue
 
         elif choice == '2':
-            calculate_earnings()
+            funds, earnings = zoo.zoo_earnings(funds)
+            print(f'\nEarnings for the week: ${earnings}')
+            print(f'\nTotal funds: ${funds}')
             break
 
         else:
             print("\nYour input was not valid.")
+
