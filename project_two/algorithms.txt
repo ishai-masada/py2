@@ -1,0 +1,120 @@
+- Import Pandas
+- Import Numpy
+- Import Matplotlib
+
+- Store the url of the Cars Google Spreadsheet into a variable
+
+- Store the url of the Passenger  Google Spreadsheet into a variable
+
+- Replace the necessart parts of both URLs
+
+Scenario 1 (Define as an independent function)
+    - Initialize three placeholder variables for the name, make, and cost of the desired car
+
+    - Read the data from the Google Spreadsheet into a Pandas DataFrame
+
+    - Set the index to be the ID column of the data
+
+    - Sort the data by price in ascending order
+
+    - Iterate over the rows of the data
+
+        - Set the Cost variable to the car's Cost
+
+        - Set the Name variable to the car's Name
+
+        - Set the Make variable to the car's Make
+
+    - Display the data of the most expensive car
+
+Scenario 2 (Define as an independent function)
+    - Read the data from the Google Spreadsheet into a Pandas DataFrame
+
+    - Set the index to be the ID column of the data
+
+    - Initialize an empty DataFrame as a placeholder for the desired cars
+
+    - Establish the make of the desired cars
+
+    - Iterate over the rows of the data
+
+        - Check of the make of the car is equal to the desired make
+
+            - Set the DataFrame equal to the appended value
+
+    - Reset the indices of the data
+
+Scenario 3 (Define as an independent function)
+    - Read the data from the Google Spreadsheet into a Pandas DataFrame
+
+    - Set the index to be the ID column of the data
+
+    - Sort the data by price in ascending order
+
+    - Reset the indices of the data
+
+    - Initialize an empty DataFrame as a placeholder for the desired cars
+
+    - Initialize a count variable
+
+    - Iterate over the data to get the first five rows of the DataFrame
+
+        - Set the DataFrame equal to the appended value
+
+        - Increment the count variable
+
+        - Check if the count variable is less than 4
+
+    - Display the information of the five cars aranged by price
+
+    - Sort the data by Horsepower in ascending order
+
+    - Reset the indices of the data
+
+    - Display the information of the five cars aranged by Horsepower
+
+Scenario 4 (Define as an independent function)
+    - Read the data from the Google Spreadsheet into a Pandas DataFrame
+
+    - Set the index to be the ID column of the data
+
+    - Create a DataFrame with the people from the Economy Class
+
+Scenario 5 (Define as an independent function)
+    - Read the data from the Google Spreadsheet into a Pandas DataFrame
+
+    - Set the index to be the ID column of the data
+
+    - Initialize lists to store the ages of the males and females
+
+    - Iterate over the rows of the data
+
+        - Check if the column is for Males
+
+            - Add the age to the male ages list
+
+        - Check if the column is for Females
+
+            - Add the age to the female ages list
+
+    - Create the subplots structured as 1 row by 2 columns
+
+    - Create the first histogram for the males
+
+    - Set the x-label
+
+    - Set the y-label
+
+    - Set the title of the plot
+
+    - Create the second histogram for the females
+
+    - Set the x-label
+
+    - Set the y-label
+
+    - Set the title of the plot
+
+    - Arange the default layout for the figure
+
+    - Display the figure
