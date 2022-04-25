@@ -182,56 +182,60 @@ def get_choice():
 
     return choice
 
-TICKET_COST = 50
-funds = 10000
 
-# Initialize the Zoo object
-zoo = Zoo("St Albans Zoo", {})
+def main():
+    TICKET_COST = 50
+    funds = 10000
 
-# Initialize the graph input
-graph_input = {"Day": [0],
-               "Funds": [0]}
-day = 0
+    # Initialize the Zoo object
+    zoo = Zoo("St Albans Zoo", {})
 
-# Conditional Loop
-while day < 7:
-    print(f'\nDay {day + 1}')
+    # Initialize the graph input
+    graph_input = {"Day": [0],
+                   "Funds": [0]}
+    day = 0
 
-    # Infinite Loop
-    while True:
-        choice = get_choice()
+    # Conditional Loop
+    while day < 7:
+        print(f'\nDay {day + 1}')
 
-        # Check if the user entered a 1
-        if choice == '1':
+        # Infinite Loop
+        while True:
+            choice = get_choice()
 
-            # Get the user's total funds
-            funds = zoo.purchase_animals(funds)
-            continue
+            # Check if the user entered a 1
+            if choice == '1':
 
-        # Check if the user entered a 2
-        elif choice == '2':
+                # Get the user's total funds
+                funds = zoo.purchase_animals(funds)
+                continue
 
-            # Calculate the user's funds and earnings for the day
-            funds, earnings, graph_input = zoo.zoo_earnings(funds, graph_input, day)
-            print(f'\nEarnings for the day: ${earnings}')
-            print(f'\nTotal funds: ${funds}')
-            break
+            # Check if the user entered a 2
+            elif choice == '2':
 
-        else:
-            print("\nYour input was not valid.")
-    day += 1
+                # Calculate the user's funds and earnings for the day
+                funds, earnings, graph_input = zoo.zoo_earnings(funds, graph_input, day)
+                print(f'\nEarnings for the day: ${earnings}')
+                print(f'\nTotal funds: ${funds}')
+                break
 
-# Calcualte the user's profits for the week
-profit = funds - 10000
+            else:
+                print("\nYour input was not valid.")
+        day += 1
 
-# Check if the user has earned profit
-if profit > 0:
-    print(f'\nYou earned ${profit} in profits!')
+    # Calcualte the user's profits for the week
+    profit = funds - 10000
 
-# Check if the user did not make a profit
-elif profit == 0:
-    print(f'\nYou earned zero profit!')
+    # Check if the user has earned profit
+    if profit > 0:
+        print(f'\nYou earned ${profit} in profits!')
 
-# Check if the user lost money
-elif profit < 0:
-    print(f'\nYou lost {abs(profit)}!')
+    # Check if the user did not make a profit
+    elif profit == 0:
+        print(f'\nYou earned zero profit!')
+
+    # Check if the user lost money
+    elif profit < 0:
+        print(f'\nYou lost {abs(profit)}!')
+
+main()
