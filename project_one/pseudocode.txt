@@ -1,0 +1,108 @@
+- Import Matplotlib
+- Import Numpy
+
+Animal Class
+    - Define the repr
+
+        - Return the name of the animal
+
+    - Define the constuctor
+
+    - Define the earnings method
+
+        - Returns the estimated amount of funds earned in a day
+
+Zoo Class
+    - Available animals of Animal Class type class variable for user to choose from
+
+    - Define the repr
+
+        - Return the name of the zoo
+
+    - Define the constructor
+
+    - Define the animal purchasing method
+        - Call the display Zoo method
+
+        - Infinite Loop
+
+            - Prompt the user to enter the name of the animal that they want to purchase
+
+            - Check if the user entered nothing
+
+
+            - Check if the animal name is valid
+
+            - Iterate over the available animals
+
+                - Check if the name is an available name
+
+            - Check if the user entered a valid name
+
+            - Check if the can afford to purchase the desired animal
+
+                - Decrement their funds by the cost of the desired animal
+
+                - Check if the user has one of the animals that they want to purchase
+
+                    - Insert the desired animal into the user's collection of animals
+
+                - Increment the count by one
+
+                - Call the display Zoo Class method
+
+    - Define the display Zoo Class method
+        - Iterate over the available animals
+
+            - Print each animal's name and cost
+
+        - Check if the user has any animals
+
+            - Iterate over the user's animals
+
+                - Print each animal's name and cost
+
+    - Define the earnings Zoo Class method
+        - Get all of the earnings from each owned animal
+
+        - Calculate the total funds given the week's earnings
+
+        - Add the current amount of funds to the input data for the graph
+
+        - Set up the arrays of data for the graph
+
+        - Create the plot for the graph using the graph input data
+
+        - Add axis labels and a title
+
+        - Display the scatter plot
+
+- Define the get choice function
+    - Infinite Loop
+
+        - Prompt the user to enter the number of the option they want to do
+
+        - Check if they didn't enter a number
+
+- Initialize the Zoo object
+
+- Initialize the graph input
+
+- Conditional Loop
+    - Infinite Loop
+
+        - Check if the user entered a 1
+
+            - Get the user's total funds
+
+        - Check if the user entered a 2
+
+            - Calculate the user's funds and earnings for the day
+
+- Calcualte the user's profits for the week
+
+- Check if the user has earned profit
+
+- Check if the user did not make a profit
+
+- Check if the user lost money
