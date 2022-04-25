@@ -176,5 +176,3 @@ def ages(url):
 
     # Display the figure
     matplotlib.show()
-
-get_most_expensive(url_1)
