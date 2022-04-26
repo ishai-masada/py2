@@ -14,7 +14,7 @@ raw_url = 'https://docs.google.com/spreadsheets/d/1OntrAAivWeLHR35wRHg5EY5e-O-Cm
 url = raw_url.replace('/edit#gid=', '/export?format=csv&gid=')
 
 # Scenario 2
-def get_car_by_make(url):
+def get_cars_by_make(url):
     # Read the data from the Google Spreadsheet into a Pandas DataFrame
     cars_df = pandas.read_csv(url)
     # Set the index to be the ID column of the data
@@ -25,7 +25,10 @@ def get_car_by_make(url):
 
     # Establish the make of the desired cars
     desired_make = "Lamborghini"
-    print(f"The desired make: {desired_make}")
+
+    print(cars_df)
+
+    print(f"\nThe desired make: {desired_make}")
 
     # Iterate over the rows of the data
     for idx, row in cars_df.iterrows():
@@ -36,6 +39,6 @@ def get_car_by_make(url):
 
     # Reset the indices of the data
     desired_cars.reset_index(drop=True, inplace=True)
-    print(desired_cars)
+    print('\n', desired_cars)
 
-get_car_by_make(url)
+get_cars_by_make(url)
