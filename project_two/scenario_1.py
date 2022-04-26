@@ -29,6 +29,8 @@ def get_most_expensive(url):
     # Sort the data by price in ascending order
     cars_df.sort_values(by=['Price'], ascending=False, inplace=True)
 
+    print(cars_df)
+
     # Iterate over the rows of the data
     for idx, row in cars_df.iterrows():
         # Set the Cost variable to the car's Cost
@@ -41,6 +43,6 @@ def get_most_expensive(url):
         break
 
     # Display the data of the most expensive car
-    print(f'Most expensive car: {most_expensive_make} {most_expensive_name} - ${highest_cost}')
+    print(f'\nMost expensive car: {most_expensive_make} {most_expensive_name} - ${highest_cost}')
 
 get_most_expensive(url)
