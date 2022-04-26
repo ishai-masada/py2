@@ -11,7 +11,7 @@
 - Replace the necessary parts of both URLs
 
 Scenario 1 (Define as an independent function)
-    - Initialize three separate placeholder variables for the name, make, and cost of the desired car
+    - Initialize three separate placeholder variables for the Name, Make, and Cost of the desired car
 
     - Read the data from the Google Spreadsheet into a Pandas DataFrame using
       the Pandas method read_csv()
@@ -21,7 +21,7 @@ Scenario 1 (Define as an independent function)
 
     - Sort the data by price in ascending order using Pandas method sort_values()
 
-    - Iterate over the rows of the data
+    - Iterate over the rows of the data using the Pandas method iterrows()
 
         - Set the Cost variable to the car's Cost
 
@@ -45,16 +45,19 @@ Scenario 2 (Define as an independent function)
     - Establish the make of the desired cars by storing the desired brand
       name as a string
 
-    - Iterate over the rows of the data from the Google Spreadsheet
+    - Iterate over the rows of the data from the Google Spreadsheet using the
+      Pandas method iterrows()
 
         - Check if the make of the car is equal to the desired make
 
-            - Append the row to the new DataFrame
+            - Append the row to the new DataFrame using the Pandas method
+              append()
 
             - Set the new DataFrame equal to the result of the appended
               DataFrame
 
-    - Reset the indices of the new DataFrame
+    - Reset the indices of the new DataFrame using the Pandas method
+      reset_index()
 
 Scenario 3 (Define as an independent function)
     - Read the data from the Google Spreadsheet into a Pandas DataFrame using
@@ -72,9 +75,9 @@ Scenario 3 (Define as an independent function)
     - Initialize a count variable
 
     - Iterate over the data to get the first five rows of the data from the
-      Google Spreadsheet
+      Google Spreadsheet using the Pandas method iterrows()
 
-        - Append the row to the new DataFrame
+        - Append the row to the new DataFrame using the Pandas method append()
 
         - Set the new DataFrame equal to the result of the appended
           DataFrame
@@ -115,7 +118,8 @@ Scenario 5 (Define as an independent function)
     - Initialize two lists to store the ages of the males and females (One
       for each)
 
-    - Iterate over the rows of the data from the Google Spreadsheet
+    - Iterate over the rows of the data from the Google Spreadsheet using the
+      Pandas method iterrows()
 
         - Check if the column is for Males
 
