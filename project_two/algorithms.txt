@@ -1,23 +1,25 @@
-- Import Pandas
-- Import Numpy
-- Import Matplotlib
-
+***OUTSIDE OF ALL PROGRAMS***
 - Create a Google Spreadsheet with columns and rows to store Cars data
-    - Store the url of the Cars Google Spreadsheet into a variable
 
 - Create a Google Spreadsheet with columns and rows to store Passenger data
-    - Store the url of the Passenger  Google Spreadsheet into a variable
 
-- Replace the necessary parts of both URLs
+***FOR ALL PROGRAMS***
+    - Import Pandas
+    - Import Numpy
+    - Import Matplotlib
 
 Scenario 1 (Define as an independent function)
-    - Initialize three separate placeholder variables for the Name, Make, and Cost of the desired car
+    - Store the url of the Cars Google Spreadsheet into a variable
+
+    - Replace the necessary parts of the URL using the Pandas method replace()
 
     - Read the data from the Google Spreadsheet into a Pandas DataFrame using
       the Pandas method read_csv()
 
     - Set the index to be the ID column of the data using the Pandas method
       set_index()
+
+    - Initialize three separate placeholder variables for the Name, Make, and Cost of the desired car
 
     - Sort the data by price in ascending order using Pandas method sort_values()
 
@@ -34,6 +36,10 @@ Scenario 1 (Define as an independent function)
     - Display the data of the most expensive car
 
 Scenario 2 (Define as an independent function)
+    - Store the url of the Cars Google Spreadsheet into a variable
+
+    - Replace the necessary parts of the URL using the Pandas method replace()
+
     - Read the data from the Google Spreadsheet into a Pandas DataFrame using
       the Pandas method read_csv()
 
@@ -60,6 +66,10 @@ Scenario 2 (Define as an independent function)
       reset_index()
 
 Scenario 3 (Define as an independent function)
+    - Store the url of the Cars Google Spreadsheet into a variable
+
+    - Replace the necessary parts of the URL using the Pandas method replace()
+
     - Read the data from the Google Spreadsheet into a Pandas DataFrame using
       the Pandas method read_csv()
 
@@ -97,6 +107,10 @@ Scenario 3 (Define as an independent function)
     - Display the information of the five cars aranged by Horsepower
 
 Scenario 4 (Define as an independent function)
+    - Store the url of the Passenger  Google Spreadsheet into a variable
+
+    - Replace the necessary parts of the URL using the Pandas method replace()
+
     - Read the data from the Google Spreadsheet into a Pandas DataFrame using
       the Pandas method read_csv()
 
@@ -109,6 +123,10 @@ Scenario 4 (Define as an independent function)
     - Display the DataFrame with the people in the Economy Class
 
 Scenario 5 (Define as an independent function)
+    - Store the url of the Passenger  Google Spreadsheet into a variable
+
+    - Replace the necessary parts of the URL using the Pandas method replace()
+
     - Read the data from the Google Spreadsheet into a Pandas DataFrame using
       the Pandas method read_csv()
 
