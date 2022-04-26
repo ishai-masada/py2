@@ -22,7 +22,7 @@ class Animal:
         self.count = count
 
     # Define the earnings method
-    def animal_earnings(self):
+    def animal_earnings(self, TICKET_COST):
         # Returns the estimated amount of funds earned in a day
         return (self.cost / 100) * self.count * TICKET_COST
 
@@ -131,12 +131,12 @@ class Zoo:
             print("(None)")
 
     # Define the earnings Zoo Class method
-    def zoo_earnings(self, funds, graph_input, day):
+    def zoo_earnings(self, funds, graph_input, day, TICKET_COST):
         earnings = 0
 
         # Get all of the earnings from each owned animal
         for animal in self.owned_animals:
-            earnings += self.owned_animals[animal].animal_earnings()
+            earnings += self.owned_animals[animal].animal_earnings(TICKET_COST)
 
         # Calculate the total funds given the week's earnings
         funds += earnings
@@ -214,7 +214,7 @@ def main():
             elif choice == '2':
 
                 # Calculate the user's funds and earnings for the day
-                funds, earnings, graph_input = zoo.zoo_earnings(funds, graph_input, day)
+                funds, earnings, graph_input = zoo.zoo_earnings(funds, graph_input, day, TICKET_COST)
                 print(f'\nEarnings for the day: ${earnings}')
                 print(f'\nTotal funds: ${funds}')
                 break
