@@ -20,6 +20,8 @@ def ages(url):
     # Set the index to be the ID column of the data
     people_df.set_index("ID", inplace=True)
 
+    print(people_df)
+
     # Initialize lists to store the ages of the males and females
     x_males = []
     x_females = []
