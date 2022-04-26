@@ -20,9 +20,11 @@ def get_economy(url):
     # Set the index to be the ID column of the data
     people_df.set_index("ID", inplace=True)
 
+    print(people_df)
+
     # Create a DataFrame with the people from the Economy Class
     people_df = people_df.where(people_df["Class"] == 'Economy').dropna()
 
-    print(people_df)
+    print('\nPassengers sorted by Economy class\n', people_df)
 
 get_economy(url)
